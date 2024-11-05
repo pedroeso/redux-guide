@@ -9,6 +9,7 @@ import * as Styles from "./styles";
 
 // Utilities
 import { loginUser, logoutUser } from "../../redux/user/actions";
+import { selectProductsCount } from "../../redux/cart/cart.selectors";
 
 function Header() {
   const [cartIsVisible, setCartIsVisible] = useState(false);
@@ -16,11 +17,10 @@ function Header() {
   const { currentUser } = useSelector((rootReducer) => rootReducer.userReducer);
   const { products } = useSelector((rootReducer) => rootReducer.cartReducer);
 
+  const productsCount = useSelector(selectProductsCount)
+
   const dispatch = useDispatch();
 
-  const productsCount = useMemo(() => {
-    return products.reduce((acc, curr) => acc + curr.quantity, 0);
-  }, [products]);
 
   const handleCartClick = () => {
     setCartIsVisible(true);
