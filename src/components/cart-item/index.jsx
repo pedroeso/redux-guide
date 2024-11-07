@@ -5,14 +5,14 @@ import { useDispatch } from "react-redux";
 // Styles
 import * as Styles from "./styles";
 
-import { removeProductFromCart, increaseProductQuantity, decreaseProductQuantity } from "../../redux/cart/action";
+import { removeProduct, increaseProductQuantity, decreaseProductQuantity } from "../../redux/cart/slice";
 ;
 
 const CartItem = ({ product }) => {
   const dispatch = useDispatch();
 
   const handleRemoveClick = () => {
-    dispatch(removeProductFromCart(product.id));
+    dispatch(removeProduct(product.id));
   };
 
   const handleIncreaseClick = () => {
