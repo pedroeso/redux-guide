@@ -20,7 +20,7 @@ const Cart = ({ isVisible, setIsVisible }) => {
         <Styles.CartTitle>Seu Carrinho</Styles.CartTitle>
 
         {products.map(product => <CartItem product={product}/>)}
-        <Styles.CartTotal>R${productsTotalPrice}</Styles.CartTotal>
+        <Styles.CartTotal>Total: R${productsTotalPrice}</Styles.CartTotal>
       </Styles.CartContent>
     </Styles.CartContainer>
   );
